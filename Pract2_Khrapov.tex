@@ -19,7 +19,7 @@
 \end{enumerate}
 \newcommand{\x}{25}%Задаю новые команды.
 \newcommand{\ReYm}{60}
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}
 
 \draw(0,0) node [below] {0};%Ставлю начало координат.
 \draw[thin,->] (0,0) -- ({10*cos(0)},0); %Вектор ОХ
@@ -36,9 +36,10 @@
 \draw[thin,purple,dashed] ({10*cos(\x)},{10*sin(\x)}) -- (0,{10*sin(\x)}); %Перпендикуляр от вершины вектора х к оси перпендикулярной OX.
 \draw[purple] (-0.2,{10*sin(\x)}) node {$y^1$};
 \draw[purple] (2.3, 4.6) node {$y^1$}; %точка по Y
-\draw[thin,green,dashed] ({10*cos(\x)},{10*sin(\x)}) -- (0,{10*sin(\ReYm)}); %Перпендикуляр от вершины вектора х к оси OY
-\draw[green] (3.6,6.66) node {$y_1$};
-\draw[green] (-0.2, {10*sin(\ReYm)}) node {$y_1$};
+\draw[thin,green,dashed] ({10*cos(\x)},{10*sin(\x)}) -- (1.25,{10*sin(\ReYm)}); %Перпендикуляр от вершины вектора х к оси OY
+\draw[green, dashed] (1.362, 8.592) -- (0,9.37); %Достройка вектора до требуемой длины
+\draw[green] (3.77,7) node {$y_1$};
+\draw[green] (-0.2, 9.5) node {$y_1$};
 \draw[thin,purple,dashed] ({10*cos(\x)},{10*sin(\x)}) -- ({10*cos(\x)},-5.25); %Перпендикуляр от вершины вектора х к оси ОХ.
 \draw[purple] ({10*cos(\x)},0.2) node [right] {$x_1$};
 \draw[purple] (9.4, -5.1) node {$x_1$};
@@ -49,7 +50,7 @@
 \draw[green] (6.6, 0.3) node {$x^1$}; %Точка по X
 \draw[purple] (8.8, 0) -- (8.8, 0.25) -- (9.06, 0.25); %Прямой угол х_1
 \draw[green] (4.82, -2.78) -- (4.936, -2.58) -- (5.13, -2.69); %Прямой угол x^1
-\draw[green] (3.77, 6.512) -- (3.94, 6.424) -- (4.075, 6.66); %Прямой угол y_1
+\draw[green] (4, 6.92) -- (4.112, 6.855) -- (4.2, 7.005); %Прямой угол y_1
 \draw[purple] (0, 4.44) -- (0.17, 4.44) -- (0.17, 4.22); %Прямой угол у^1
 
 \end{tikzpicture}
