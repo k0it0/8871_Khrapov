@@ -5,6 +5,7 @@
 \usepackage[english, russian]{babel}     % Настройки для русского языка
 \usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
 \usepackage{tikz}
+\usetikzlibrary{calc}
 \title{Практическая работа №2}
 \author{Студент группы 8871 Храпов М.В}
 \begin{document}
@@ -17,41 +18,39 @@
   \item Угол косоугольной системы координат $\theta=60^0$
   \item Угол от оси x вектора $\alpha=25^0$
 \end{enumerate}
-\newcommand{\x}{25}%Задаю новые команды.
-\newcommand{\ReYm}{60}
-\begin{tikzpicture}
+\newcommand{\alfa}{25}%Задаю новые команды.
+\newcommand{\teta}{60}
+\newcommand{\cont}{1.05}%Команда для продления векторов
+\begin{tikzpicture}[scale=10]
 
 \draw(0,0) node [below] {0};%Ставлю начало координат.
-\draw[thin,->] (0,0) -- ({10*cos(0)},0); %Вектор ОХ
-\draw ({10*cos(0)},-0.3) node {X};
-\draw[thin,->] (0,0) -- ({10*cos(\ReYm)},{10*sin(\ReYm)}); %Вектор ОY
-\draw (4.7, {10*sin(\ReYm)}) node {Y};
-\draw[red,->] (0,0) -- ({10*cos(\x)},{10*sin(\x)}); %Вектор Х
-\draw({5*cos(\x)},{5*sin(\x)}) node [below]{\rotatebox{\x}{$\vec{x}$}}; %Расположение и поворот обозначения вектора вдоль направления вектора Х.
-\draw[blue,<->]({3*cos(\ReYm)},0) arc (0:60:{3*cos(\ReYm)}); %Создаю дугу угла theta, методом построения части окружности.
-\draw[blue,<->]({4*cos(\x)},0) arc (0:25:{4*cos(\x)}); %Создаю дугу угла alpha, методом построения части окружности.
-\draw(4.5,0.75) node {$\alpha=25^0$}; %Обозначение угла х
-\draw(2.3,0.5) node {$\theta=60^0$}; %Обозначение угла t
-\draw[gray,thin,dashed,->] (0,0) -- (0,{10*sin(90)}); %Создание координатной оси перпендикулярной OX.
-\draw[thin,purple,dashed] ({10*cos(\x)},{10*sin(\x)}) -- (0,{10*sin(\x)}); %Перпендикуляр от вершины вектора х к оси перпендикулярной OX.
-\draw[purple] (-0.2,{10*sin(\x)}) node {$y^1$};
-\draw[purple] (2.3, 4.6) node {$y^1$}; %точка по Y
-\draw[thin,green,dashed] ({10*cos(\x)},{10*sin(\x)}) -- (1.25,{10*sin(\ReYm)}); %Перпендикуляр от вершины вектора х к оси OY
-\draw[green, dashed] (1.362, 8.592) -- (0,9.37); %Достройка вектора до требуемой длины
-\draw[green] (3.77,7) node {$y_1$};
-\draw[green] (-0.2, 9.5) node {$y_1$};
-\draw[thin,purple,dashed] ({10*cos(\x)},{10*sin(\x)}) -- ({10*cos(\x)},-5.25); %Перпендикуляр от вершины вектора х к оси ОХ.
-\draw[purple] ({10*cos(\x)},0.2) node [right] {$x_1$};
-\draw[purple] (9.4, -5.1) node {$x_1$};
-\draw[gray,thin,dashed] (0,0) -- ({10*cos(30)},{-10*sin(30)});%Создание оси координат, перпендикулярной оси OY.
-\draw[gray, dashed,->] (8.52, -4.918) -- (10, -5.816); %Достройка оси до требуемой длины
-\draw[thin,green,dashed] ({10*cos(60)},{-10*sin(17)}) -- ({10*cos(\x)},{10*sin(\x)}); %Перпендикуляр от проекции вершины вектора х к оси перпендикулярной OY.
-\draw[green] (5.5,-2.7) node {$x^1$};
-\draw[green] (6.6, 0.3) node {$x^1$}; %Точка по X
-\draw[purple] (8.8, 0) -- (8.8, 0.25) -- (9.06, 0.25); %Прямой угол х_1
-\draw[green] (4.82, -2.78) -- (4.936, -2.58) -- (5.13, -2.69); %Прямой угол x^1
-\draw[green] (4, 6.92) -- (4.112, 6.855) -- (4.2, 7.005); %Прямой угол y_1
-\draw[purple] (0, 4.44) -- (0.17, 4.44) -- (0.17, 4.22); %Прямой угол у^1
-
+\draw[thin,->] (0,0) -- ({cos(0)},0); %Вектор ОХ
+\draw ({cos(0)},0) node[below] {X};
+\draw[thin,->] (0,0) -- ({cos(\teta)},{sin(\teta)}); %Вектор ОY
+\draw ({cos(\teta)},{sin(\teta)}) node[left] {Y};
+\draw[red,->] (0,0) -- ({cos(\alfa)},{sin(\alfa)}) node [midway,above] {\rotatebox{\alfa}{$\vec{x}$}};; %Вектор Х
+\draw[blue,<->]({0.5*cos(\teta)},0) arc (0:60:{0.5*cos(\teta)}); %Создаю дугу угла theta, методом построения части окружности.
+\draw[blue,<->]({0.5*cos(\alfa)},0) arc (0:25:{0.5*cos(\alfa)}); %Создаю дугу угла alpha, методом построения части окружности.
+\draw({0.5*cos(\alfa)},0.1) node[right] {$\alpha=25^0$}; %Обозначение угла х
+\draw({0.5*cos(\teta)},0.1) node[right] {$\theta=60^0$}; %Обозначение угла t
+%-------------------Конец основного графика---------------------------------------------------
+\draw[gray,thin,dashed,->] (0,0) -- (0,{sin(90)}); %Создание координатной оси перпендикулярной OX.
+\draw[thin,purple,dashed] ({cos(\alfa)},{sin(\alfa)}) -- (0,{sin(\alfa)}); %Перпендикуляр от вершины вектора х к оси перпендикулярной OX.
+\draw[thin,green,dashed] ({cos(\alfa)},{sin(\alfa)}) --++ ({-\cont*cos(30)},{\cont*sin(30)});
+\draw[purple] (0,{sin(\alfa)}) node[left] {$y^1$};
+\draw[purple] (0.23,0.45) node {$y^1$}; %точка по Y
+\draw[thin,green,dashed] ({cos(\alfa)},{sin(\alfa)}) --++ ({-0.82*cos(\teta)},{-0.82*sin(\teta)}); %Перпендикуляр от проекции вершины вектора х к оси перпендикулярной OY.
+\draw[green] (0.4,0.74) node {$y_1$};
+\draw[green] (-0.02, 0.95) node {$y_1$};
+\draw[thin,purple,dashed] ({cos(\alfa)},{sin(\alfa)}) -- ({cos(\alfa)},{-1.22*sin(\alfa)}); %Перпендикуляр от вершины вектора х к оси ОХ.
+\draw[purple] ({cos(\alfa)},0.02) node [right] {$x_1$};
+\draw[purple] ({cos(\alfa)},{-1.22*sin(\alfa)}) node[right] {$x_1$};
+\draw[gray,dashed,->] (0,0) -- ({\cont*cos(30)},{-\cont*sin(30)});%Создание оси координат, перпендикулярной оси OY.
+\draw[green] (0.55,-0.27) node {$x^1$};
+\draw[green] (0.65, 0.03) node {$x^1$}; %Точка по X
+\draw[purple] (0.88, 0) -- (0.88, 0.025) -- (0.906, 0.025); %Прямой угол х_1
+\draw[green] (0.482, -0.278) -- (0.4936, -0.258) -- (0.509, -0.267); %Прямой угол x^1
+\draw[green] (0.402, 0.694) -- (0.414, 0.687) -- (0.423, 0.702); %Прямой угол y_1
+\draw[purple] (0, 0.444) -- (0.017, 0.444) -- (0.017, 0.422); %Прямой угол у^1
 \end{tikzpicture}
 \end{document} 
