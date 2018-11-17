@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                   
+\usepackage{cmap}                        
+\usepackage[cp1251]{inputenc}            
+\usepackage[english, russian]{babel}     
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry}
+\usepackage{tikz}
+\title{Практическая работа №3}
+\author{Студент группы 8871 Храпов М.В}
+\begin{document}
+\maketitle
+   Эта работа является продолжением лабораторной работы $№13$, а именно п. 3 (вариант $№6$).
+Построим график функции $x^3+0,5x^2-3,5x-3=0$.
+Так-же подведём к графику 2 касательных.(1е приближение синего цвета, 2е-красного).
+\\-Уравнение синей касательной ($x_0=1$) будет иметь вид $17,75 \cdot x-37,375$. Данная касательная пересечёт ось X в точке $\approx 2,105634$.
+\\-Уравнение красной касательной ($x_0=2,1$) будет иметь вид $11,83 \cdot x-23,727$.Данная касательная пересечёт ось X в точке $\approx 2,005664$.
+\\ Данные о пересечении касательными оси взяты в excel при помощи функции "подбор параметра".
+\begin{tikzpicture}
+\begin{scope}[scale=1.3]
+
+
+\draw[thin, ->] (-7,0) -- (7,0) node[right] {$X$};
+\draw[thin, ->] (0,-7) -- (0,7) node[left] {$Y$};
+
+\foreach \x\xtext in
+{-2/-2,-1.5/-1.5,-1/-1,1/1,1.5/1.5,2/2,2.5/2.5} %
+\scriptsize\draw (\x,0.1) -- (\x,-0.1) node[below] {$\xtext$};
+
+
+\draw[domain=-2.4:2.7, smooth, green] plot ({\x},{((\x)*(\x)*(\x))+(0.5*(\x)*(\x))-(3.5*(\x))-3});
+\draw[domain=2.72:1.9, smooth, help lines, blue] plot ({\x},{(17.75*(\x))-37.375});
+\draw[domain=2.6:1.8, smooth, help lines, red] plot ({\x},{(11.83*(\x))-23.727});
+\draw[dashed, help lines, black] (2.105634,0) --++ (0,1.29); %Перпендикуляр от точки пересечения касательной 1 с осью X, к графику функции.
+
+\end{scope};
+\end{tikzpicture}
+\end{document}
+
