@@ -17,21 +17,15 @@
 \\ Данные о пересечении касательными оси взяты в excel при помощи функции "подбор параметра".
 \begin{tikzpicture}[yscale=0.25,xscale=1.3]
 \begin{scope}
-
-
 \draw[thin, ->] (-7,0) -- (7,0) node[right] {$X$};
 \draw[thin, ->] (0,-7) -- (0,7) node[left] {$Y$};
-
 \foreach \x\xtext in
 {-2/-2,-1.5/-1.5,-1/-1,1/1,1.5/1.5,2/2,2.5/2.5}
 \scriptsize\draw (\x,0.1) -- (\x,-0.1) node[below] {$\xtext$};
-
-
 \draw[domain=-2.4:3, smooth, green] plot ({\x},{((\x)*(\x)*(\x))+(0.5*(\x)*(\x))-(3.5*(\x))-3});
 \draw[domain=3:1.5, smooth, help lines, blue] plot ({\x},{(17.75*(\x))-37.375});
 \draw[domain=3:1.5, smooth, help lines, red] plot ({\x},{(11.83*(\x))-23.727});
 \draw[densely dotted, black] (2.105634,0) --++ (0,1.2); %Перпендикуляр от точки пересечения касательной 1 с осью X, к графику функции.
-
 \end{scope};
 \end{tikzpicture}
 \end{document}
