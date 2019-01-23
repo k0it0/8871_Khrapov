@@ -1,0 +1,114 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\usepackage{caption}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНОБРНАУКИ РОССИИ\\ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ\\ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра РАПС.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №6\\
+    по дисциплине "Информатика"\\
+    Тема: Математический пакет SciLab.\\ Простые вычисления.\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{243pt} \underline{\hspace{\ML}} М.\,В.~Храпов
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{250pt} \underline{\hspace{\ML}} А.\,Н.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ\\ 2019 г.
+\end{center}
+\end{titlepage}
+
+\textbf {Цель работы:}\\
+Освоить технику работы с математическим пакетом SciLab.
+
+\textbf {Задание №1.} Найти ребро куба, равновеликого шару, площадь поверхности которого равна площади боковой поверхности прямого кругового конуса, у которого высота вдвое меньше, чем длина образующей. Объем этого конуса равен 1.(см. Лабораторную работу № 1).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=15cm]{1}
+\caption{Листинг №1}
+\end{figure}
+
+\newpage
+
+\textbf {Задание №2.} Вычислить стоимость поездки на автомобиле на дачу (туда и обратно). Исходными данными являются: расстояние (rast) до дачи (км); количество бензина (potr), которое потребляет автомобиль на 100 км пробега; цена одного литра бензина (cena).
+
+Основная формула, используемая при расчете:
+$$sum=2\cdot \frac{potr}{100}\cdot rast\cdot cena$$
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=15cm]{2}
+\caption{Листинг №2}
+\end{figure}
+
+\newpage
+
+\textbf {Задание №3.} Вычислить величину дохода по вкладу. Процентная ставка (\% годовых) и время хранения (дней) задаются.\\ 
+\begin{center}
+Формула для расчетов процентов:
+
+$$Sp=\frac{P\cdot I\cdot t}{K\cdot 100}$$
+
+где\\
+Sp-сумма процентов(доход)\\
+P-сумма взноса(270000р)\\
+I-годовая процентная ставка(9\%)\\
+t-кол-во дней начисления процентов по вкладу (365)\\
+K-кол-во календарных дней(365)
+
+
+\end{center}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=12cm]{3}
+\caption{Листинг №3}
+\end{figure}
+
+\newpage
+
+\textbf {Задание №4.} Вычислить объем цилиндра. Заданы радиус основания r и высота цилиндра h.\\ Основная формула, используемая при расчете:
+
+$$V=\pi \cdot r^2\cdot h$$
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=15cm]{4}
+\caption{Листинг №4}
+\end{figure}
+
+\newpage
+
+\textbf {Задание №5.} Использование элементарных функций.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=13cm]{5}
+\caption{Листинг №5}
+\end{figure}
+
+
+\textbf {Вывод:} В данной работе был рассмотрен ряд элементарных функций и команд математического пакета SciLab.
+
+
+\end{document}
