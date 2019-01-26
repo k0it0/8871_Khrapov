@@ -1,0 +1,86 @@
+\documentclass[a4paper,12pt]{scrartcl}
+\usepackage{mathtext}                    % Русский язык в формулах
+\usepackage{cmap}                        % Поддержка поиска русских слов в PDF (pdflatex)
+\usepackage[cp1251]{inputenc}            % Выбор языка и кодировки
+\usepackage[english, russian]{babel}     % Настройки для русского языка
+\usepackage[left=1cm,right=1cm,top=1cm,bottom=2cm]{geometry} % поля страницы
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{pictures/}}
+\usepackage{caption}
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \large
+МИНОБРНАУКИ РОССИИ\\ САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ\\ ЭЛЕКТРОТЕХНИЧЕСКИЙ УНИВЕРСИТЕТ\\ «ЛЭТИ» ИМ. В.И. УЛЬЯНОВА (ЛЕНИНА)
+    \textsc{}\\[1.5mm]
+    Кафедра РАПС.
+    \textsc{}\\[60mm]
+    \large
+    ОТЧЁТ\\
+    лабораторной работы №7\\
+    по дисциплине "Информатика"\\
+    Тема: Математический пакет SciLab.\\ Простые вычисления.\\
+\end{center}
+\textsc{}\\[3cm]
+
+\newlength{\ML}
+\settowidth{\ML}{«\underline{\hspace{0.7cm}}» \underline{\hspace{2cm}}}
+
+\begin{flushleft}
+  Студент гр. 8871 \hspace{243pt} \underline{\hspace{\ML}} М.\,В.~Храпов
+  \textsc{}\\[5mm]
+  Преподаватель \hspace{250pt} \underline{\hspace{\ML}} А.\,Н.~Прокшин
+\end{flushleft}
+\textsc{}\\[4.95cm]
+\begin{center}
+  САНКТ-ПЕТЕРБУРГ\\ 2019 г.
+\end{center}
+\end{titlepage}
+
+\textbf{Цель работы:} Освоить технику работы с векторами и матрицами в пакете SciLab.
+
+\textbf{Задание:} Решить линейную систему уравнений 3 – го порядка. Коэффициенты задать самим. Найти собственные значения и вектор квадратной матрицы А. Так-же транспонировать ($А^T$) и возвести в 3-ю степень ($А^3$).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=15cm]{71}
+\caption{Листинг №1}
+\end{figure}
+
+Где:A-квадратная матрица 3-го порядка, B-матрица столбец её решений, G-Расширенная матрица решённая методом Жордана-Гаусса, x-матрица столбец её ответов, At-транспонированная матрица А, А3- матрица А возведённая в 3-ю степень.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=15cm]{72}
+\caption{Листинг №2}
+\end{figure}
+
+Где:Y-собственные числа матрицы А, X-собственные векторы матрицы А.
+
+\textbf{Решения уравнений:}
+
+%Первое
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=13cm]{73}
+\caption{Уравнение 1}
+\end{figure}
+
+\newpage
+%Ответы на 2 и 3
+
+\begin{figure}[h!]
+\begin{minipage}[h]{0.49\linewidth}
+\center{\includegraphics[width=0.5\linewidth]{74} \\ Уравнение 2}
+\end{minipage}
+\hfill
+\begin{minipage}[h]{0.49\linewidth}
+\center{\includegraphics[width=0.5\linewidth]{75} \\ Уравнение 3}
+\end{minipage}
+\end{figure}
+
+\textbf{Вывод:} В данной работе были рассмотрены расчёты с векторами и матрицами на математической платформе SciLab.
+
+\end{document} 
